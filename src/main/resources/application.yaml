@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ai-core
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vectordb
+    username: ginitoru
+    password: 1234
+
+  ai:
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 4096

@@ -13,3 +13,7 @@ spring:
         index-type: HNSW
         distance-type: COSINE_DISTANCE
         dimensions: 4096
+
+  web:
+    resources:
+      static-locations: classpath:/static/browser

@@ -38,6 +38,7 @@ public class Template {
             modelType: variant of that car -> a car might come in different models (ex: Dacia Logan Ambience, or Dacia Loan Laureate)
             topSpeed: top speed of that car in km/h -> ex: 160 km/m
             engineType: petrol or diesel or electric etc.
+            startProductionYear: year when production of the model started
 
             ###### FORMAT EXAMPLE END #######
 

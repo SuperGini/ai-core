@@ -4,7 +4,8 @@ public record CarModel(
 
         String modelType,
         String topSpeed,
-        String engineType
+        String engineType,
+        String startProductionYear
 
 
 ) {

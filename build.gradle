@@ -47,3 +47,14 @@ dependencyManagement {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+//build one fat jar spring+angular: https://blogs.perficient.com/2021/08/30/angular-and-spring-boot-as-a-single-application/
+task deleteStaticFolder(type: Delete){
+    def dirName = "src/main/resources/static"
+    file( dirName ).list().each{
+        f ->
+            delete "${dirName}/${f}"
+    }
+}
+
+processResources.dependsOn('angular-client-CSR:build')

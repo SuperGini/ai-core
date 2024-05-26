@@ -1,1 +1,12 @@
-<div>CARS</div>
+<div class="response-container">
+    @if (carResponse()){
+        <p>manufacturer: {{carResponse().manufacturer}}</p>
+        @for (carModel of carResponse().carModels; track carModel) {
+
+            <p>modelType: {{carModel.modelType}}</p>
+            <p>topSpeed: {{carModel.topSpeed}}</p>
+            <p>engineType: {{carModel.engineType}}</p>
+            <p>startProductionYear: {{carModel.startProductionYear}}</p>
+        }
+    }
+</div>

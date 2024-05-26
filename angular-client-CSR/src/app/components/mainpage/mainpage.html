@@ -4,8 +4,8 @@
         <div class="empty-container"></div>
         <h1>Spring AI</h1>
         <div class="text-container">
-            <input type="text" class="search-input">
-            <button class="search-btn">Search</button>
+            <input type="text" class="search-input" [(ngModel)]="search">
+            <button class="search-btn" (click)="postForCarInfo()">Search</button>
         </div>
         <router-outlet></router-outlet>
     </div>

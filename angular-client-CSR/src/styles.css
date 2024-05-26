@@ -61,3 +61,12 @@ ATTENTION! -> it seems that in Angular 18 the assets folder is now called public
     font-style: normal;
 }
 
+/*-----GENERAL HTML SETTINGS--------------------------*/
+
+cars, info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: red;
+    text-align: center;
+}

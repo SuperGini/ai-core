@@ -1,3 +1,21 @@
 .response-container {
     width: 70%;
 }
+
+.manufacturer {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+}
+
+.other-attributes {
+    margin-top: 1rem;
+
+}
+
+.other-attributes p:nth-child(4) {
+    border-bottom: 1px var(--green-dark) solid;
+}
+
+.other-attributes p:nth-child(1) ~ p {
+    padding-left: 2rem;
+}

@@ -67,6 +67,5 @@ cars, info {
     width: 100%;
     display: flex;
     justify-content: center;
-    background: red;
-    text-align: center;
+    /*text-align: center;*/
 }

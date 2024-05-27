@@ -4,7 +4,6 @@ import {RouterOutlet} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {AiGateway} from "../../services/aigateway/ai.gateway";
 import {carResponse} from "../../state/app.state";
-import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
     selector: "main-page",
@@ -25,14 +24,7 @@ export class Mainpage {
 
     postForCarInfo() {
         this.apiGateway.postCarInfo(this.search)
-            .subscribe(
-
-                 x => {
-                     console.log(x)
-                     carResponse.set(x)
-                 }
+            .subscribe(x => carResponse.set(x)
             );
     }
-
-
 }

@@ -3,8 +3,21 @@ import {Mainpage} from "./components/mainpage/mainpage";
 import {CarsPage} from "./components/mainpage/carspage/cars";
 import {Info} from "./components/mainpage/infopage/info";
 import {Spring} from "./components/mainpage/springpage/spring";
+import {Error} from "./components/error/error";
 
 export const routes: Routes = [
+
+    {
+        path: "",
+        redirectTo: "main/info",
+        pathMatch: "full",
+    },
+
+    {
+        path: "main",
+        redirectTo: "main/info",
+        pathMatch: "full",
+    },
 
     {
         path: "main",
@@ -26,7 +39,12 @@ export const routes: Routes = [
                 pathMatch: "full"
             }
         ]
-    }
+    },
 
+    {
+        path: "**",
+        component: Error,
+        pathMatch: "full"
+    },
 
 ];

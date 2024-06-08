@@ -1,6 +1,7 @@
 import {Component, inject} from "@angular/core";
 import {Router} from "@angular/router";
 
+
 @Component({
     selector: "left",
     templateUrl: "left.html",
@@ -11,13 +12,16 @@ export class Left {
 
     private router = inject(Router);
 
-
-    redirectCarsPage(){
+    redirectCarsPage() {
         this.router.navigate(['main/cars']);
     }
 
     redirectInfoPage() {
         this.router.navigate(['main/info']);
+    }
+
+    redirectSpringPage() {
+        this.router.navigate(['main/spring']);
     }
 
 }

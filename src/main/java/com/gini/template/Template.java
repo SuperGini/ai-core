@@ -43,4 +43,12 @@ public class Template {
             ###### FORMAT EXAMPLE END #######
 
             """;
+
+    public static final String PROMPT_INFO = """
+            Respond with exact information about this question {question}.
+
+            If unsure or if the answer isn't found,
+            simply respond with:  <<<Unknown>>>>.
+       
+            """;
 }

@@ -1,7 +1,7 @@
 package com.gini.controller;
 
 import com.gini.dto.Request;
-import com.gini.dto.SpringResponse;
+import com.gini.dto.Response;
 import com.gini.service.RagSpringService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -18,7 +18,7 @@ public class RagSpringController {
     private final RagSpringService ragService;
 
     @PostMapping("/question")
-    public SpringResponse getAnswer(@RequestBody Request request) {
+    public Response getAnswer(@RequestBody Request request) {
         return ragService.getAnswer(request);
     }
 }

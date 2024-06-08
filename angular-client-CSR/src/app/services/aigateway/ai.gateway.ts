@@ -2,17 +2,22 @@ import {inject, Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {CarResponse} from "../../dto/car.response";
-import {SpringRequest} from "../../dto/spring.request";
-import {SpringResponse} from "../../dto/spring.response";
+import {Request} from "../../dto/request";
+import {Response} from "../../dto/response";
 
 @Injectable({providedIn: 'root'})
 export class AiGateway {
 
     private httpclient = inject(HttpClient);
 
-    postSpringQuestion(springRequest: SpringRequest): Observable<SpringResponse> {
+    postSpringQuestion(springRequest: Request): Observable<Response> {
         console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-        return this.httpclient.post<SpringResponse>('http://localhost:8080/question', springRequest);
+        return this.httpclient.post<Response>('http://localhost:8080/question', springRequest);
+    }
+
+    postInfoQuestion(infoRequest: Request): Observable<Response> {
+        console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        return this.httpclient.post<Response>('http://localhost:8080/info', infoRequest);
     }
 
     postCarInfo(carInfo: string){

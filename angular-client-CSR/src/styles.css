@@ -63,7 +63,7 @@ ATTENTION! -> it seems that in Angular 18 the assets folder is now called public
 
 /*-----GENERAL HTML SETTINGS--------------------------*/
 
-cars, info {
+cars, info, spring {
     width: 100%;
     display: flex;
     justify-content: center;

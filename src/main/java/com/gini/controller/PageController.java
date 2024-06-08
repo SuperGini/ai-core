@@ -14,13 +14,27 @@ public class PageController {
         return FORWARD_TO_INDEX_PAGE;
     }
 
-    @GetMapping("/main/cars")
-    public String getMainPageWithCars() {
-        return FORWARD_TO_INDEX_PAGE;
-    }
+//    @GetMapping("/main/cars")
+//    public String getMainPageWithCars() {
+//        return FORWARD_TO_INDEX_PAGE;
+//    }
+//
+//    @GetMapping("/main/info")
+//    public String getMainPageWithInfo() {
+//        return FORWARD_TO_INDEX_PAGE;
+//    }
+//
+//    @GetMapping("/main/spring")
+//    public String getMainPageWithSpring() {
+//        return FORWARD_TO_INDEX_PAGE;
+//    }
 
-    @GetMapping("/main/info")
-    public String getMainPageWithInfo() {
+    @GetMapping({
+            "/main/spring",
+            "/main/cars",
+            "/main/info"
+    })
+    public String redirectToMainPage() {
         return FORWARD_TO_INDEX_PAGE;
     }
 

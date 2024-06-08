@@ -1,6 +1,7 @@
 package com.gini.service;
 
 import com.gini.dto.Request;
+import com.gini.dto.SpringResponse;
 import com.gini.repository.RagRepository;
 import com.gini.template.Template;
 import lombok.RequiredArgsConstructor;
@@ -10,12 +11,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class RagService {
+public class RagSpringService {
 
     private final RagRepository ragRepository;
     private final ChatClient chatClient;
 
-    public String getAnswer(Request request) {
+    public SpringResponse getAnswer(Request request) {
 
         var documents = ragRepository.getDocuments(request.question());
 
@@ -23,7 +24,9 @@ public class RagService {
         promptTemplate.add("question", request.question());
         promptTemplate.add("documents", String.join("\n", documents));
 
-        return chatClient.call(promptTemplate.render());
+        var response =  chatClient.call(promptTemplate.render());
+
+        return new SpringResponse(response);
     }
 
 

@@ -3,7 +3,8 @@ import {Left} from "../left/left";
 import {RouterOutlet} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {AiGateway} from "../../services/aigateway/ai.gateway";
-import {carResponse} from "../../state/app.state";
+import {carResponse, springResponse} from "../../state/app.state";
+import {SpringRequest} from "../../dto/spring.request";
 
 @Component({
     selector: "main-page",
@@ -18,7 +19,7 @@ import {carResponse} from "../../state/app.state";
 })
 export class Mainpage {
 
-    search: string;
+    protected search: string;
 
     private apiGateway = inject(AiGateway);
 
@@ -26,5 +27,11 @@ export class Mainpage {
         this.apiGateway.postCarInfo(this.search)
             .subscribe(x => carResponse.set(x)
             );
+    }
+
+    postForSpringResponse() {
+        const question: SpringRequest = {question: this.search};
+        this.apiGateway.postSpringQuestion(question)
+            .subscribe(x => springResponse.set(x));
     }
 }

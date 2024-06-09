@@ -57,4 +57,8 @@ task deleteStaticFolder(type: Delete){
     }
 }
 
+jar {
+    enabled = false
+}
+
 processResources.dependsOn('angular-client-CSR:build')

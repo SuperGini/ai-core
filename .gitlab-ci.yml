@@ -1,0 +1,34 @@
+image: docker:latest
+services:
+  - docker:dind
+
+stages:
+  - build
+  - test
+  - generate-docker-image
+
+
+build:
+  stage: build
+  image: openjdk:21-slim
+  script:
+    - chmod +x gradlew
+    - ./gradlew build
+  artifacts:
+    expire_in: 2hrs
+    paths:
+      - ./build/libs/*.jar
+
+test:
+  stage: test
+  image: openjdk:21-slim
+  script:
+    - chmod +x gradlew
+    - ./gradlew test --info
+
+build-docker-image:
+  stage: generate-docker-image
+  script:
+    - docker build -t registry.gitlab.com/gini-test-group/ai-core$CI_PIPELINE_IID .
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+    - docker push registry.gitlab.com/gini-test-group/ai-core$CI_PIPELINE_IID

@@ -29,26 +29,24 @@ public class RagRepository {
     }
 
 
-    public List<String> getDocuments2(String searchQuestion, String queryParameter) {
-        FilterExpressionBuilder b = new FilterExpressionBuilder();
-       var exp = b.eq(queryParameter, "").build();
-
-
-
-        var query = SearchRequest.defaults()
-                .withTopK(1)
-                .query(searchQuestion)
-                .withSimilarityThreshold(0.2)
-                .withFilterExpression(exp);
-
-        return vectorStore
-                .similaritySearch(query)
-                .stream()
-                .peek(x -> get(x.getMetadata()))
-                .map(Document::getContent)
-                .toList();
-
-    }
+//    public List<String> getDocuments2(String searchQuestion, String queryParameter) {
+//        FilterExpressionBuilder b = new FilterExpressionBuilder();
+//       var exp = b.eq(queryParameter, "").build();
+//
+//        var query = SearchRequest.defaults()
+//                .withTopK(1)
+//                .query(searchQuestion)
+//                .withSimilarityThreshold(0.2)
+//                .withFilterExpression(exp);
+//
+//        return vectorStore
+//                .similaritySearch(query)
+//                .stream()
+//                .peek(x -> get(x.getMetadata()))
+//                .map(Document::getContent)
+//                .toList();
+//
+//    }
 
 
 

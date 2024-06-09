@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CarsController {
 
-    private final CarService infoService;
+    private final CarService carService;
 
     @PostMapping("/cars")
     public CarResponse getCar(@RequestParam String car) {
-        return infoService.getResponse(car);
+        return carService.getResponse(car);
     }
 
 }

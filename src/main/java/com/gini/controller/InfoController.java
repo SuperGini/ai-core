@@ -15,7 +15,7 @@ public class InfoController {
     private final InfoService infoService;
 
     @PostMapping("/info")
-    private Response returnInfo(@RequestBody Request request) {
+    public Response returnInfo(@RequestBody Request request) {
         return infoService.getInfoResponse(request.question());
     }
 

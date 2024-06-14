@@ -1,11 +1,25 @@
+server:
+  port: 8080
+management:
+  server:
+    port: 8081
+  endpoints:
+    enabled-by-default: false
+  endpoint:
+    health:
+      enabled: true
+      probes:
+        enabled: true
+    info:
+      enabled: true
+
 spring:
   application:
     name: ai-core
-
   datasource:
-    url: jdbc:postgresql://localhost:5432/vectordb
-    username: ginitoru
-    password: 1234
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/vectordb
+    username: ${DB_USERNAME:ginitoru}
+    password: ${DB_PASSWORD:1234}
 
   ai:
     vectorstore:

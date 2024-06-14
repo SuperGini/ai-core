@@ -36,6 +36,7 @@ dependencies {
 
 //    implementation group: 'io.springboot.ai', name: 'spring-ai-tika-document-reader', version: '1.0.0'
     implementation group: 'io.springboot.ai', name: 'spring-ai-pdf-document-reader', version: '1.0.0'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 }
 
 dependencyManagement {

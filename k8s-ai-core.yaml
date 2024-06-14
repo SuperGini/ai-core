@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-core-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai-core
+  template:
+    metadata:
+      labels:
+        app: ai-core
+    spec:
+      containers:
+        - name: ai-core-container
+          image: ginitoru/ai-core-1:2
+          env:
+            - name: DB_HOST
+              value: 'pgvector-service.default'
+            - name: DB_PORT
+              value: '5432'
+            - name: DB_PASSWORD
+              value: '1234'
+            - name: DB_USERNAME
+              value: 'ginitoru'
+
+          resources:
+            requests:
+              memory: '512Mi'
+              cpu: '500m'
+            limits:
+              memory: '768Mi'
+              cpu: '1000m'
+          livenessProbe:
+            httpGet:
+              port: 8081
+              path: /
+            periodSeconds: 15
+            initialDelaySeconds: 60
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-core-service
+spec:
+  selector:
+    app: ai-core
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: 'TCP'
+  type: LoadBalancer
+

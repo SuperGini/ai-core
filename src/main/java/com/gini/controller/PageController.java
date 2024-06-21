@@ -13,8 +13,14 @@ public class PageController {
             "/main/cars",
             "/main/info",
             "/main"
+
     })
     public String redirectToMainPage() {
+        return FORWARD_TO_INDEX_PAGE;
+    }
+
+    @GetMapping("/test/*")
+    public String test() {
         return FORWARD_TO_INDEX_PAGE;
     }
 

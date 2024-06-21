@@ -4,6 +4,7 @@ import {CarsPage} from "./components/mainpage/carspage/cars";
 import {Info} from "./components/mainpage/infopage/info";
 import {Spring} from "./components/mainpage/springpage/spring";
 import {Error} from "./components/error/error";
+import {Test} from "./components/test/test";
 
 export const routes: Routes = [
 
@@ -17,6 +18,12 @@ export const routes: Routes = [
         path: "main",
         redirectTo: "main/info",
         pathMatch: "full",
+    },
+
+    {
+        path: "test/:id",
+        component: Test,
+        pathMatch: "full"
     },
 
     {
